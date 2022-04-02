@@ -147,7 +147,7 @@ def load_image(img_idx):
             img_array = np.array(image)
             return img_array
     return image
-
+#Путь к картинкам
 DATA_ROOT = "data/test"
 
 if __name__ == "__main__":
