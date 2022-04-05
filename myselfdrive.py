@@ -59,13 +59,13 @@ def run_the_app(data_root: str):
     orig_img = cv2.resize(orig_img, dsize=(704, 704), interpolation=cv2.INTER_AREA)
     image = st.image(orig_img)
     image.empty()
-    precision = precision_value()
-    object_selector(orig_img, precision)
+    confidence = confidence_value()
+    object_selector(orig_img, confidence)
 
 
-def object_selector(img, precision: int):
+def object_selector(img, confidence: int):
     req_class = st.sidebar.selectbox("Выберите объект", lines)
-    image = detect_object(img, req_class, precision, args)
+    image = detect_object(img, req_class, confidence, args)
     return st.image(image)
 
 
@@ -76,9 +76,9 @@ def frame_selector_ui(data_root: str):
     return selected_frame_index, selected_frame
 
 
-def precision_value():
-    precision: float = st.sidebar.slider("Точность", 0.0, 1.0, 0.3)
-    return precision
+def confidence_value():
+    confidence: float = st.sidebar.slider("Точность", 0.0, 1.0, 0.3)
+    return confidence
 
 
 @st.cache(show_spinner=False)
