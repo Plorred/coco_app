@@ -3,11 +3,12 @@ import random
 
 import cv2
 
-colors: list = [c for c in it.product([0, 128, 255], repeat=3)]
-colors = sorted(colors, key=lambda x: sum(x))
+colors: list = [c for c in it.product([80, 180, 255, 180, 120], repeat=3)]
+#colors = sorted(colors, key=lambda x: sum(x))
+print(len(colors))
 
 
-def detect_object(frame, req_class, precision, args):
+def detect_object(frame, req_class, confidence, args):
     cfg_path: str = args.cfg
     weights_path: str = args.weights
     names_path: str = args.names
@@ -27,25 +28,23 @@ def detect_object(frame, req_class, precision, args):
     text_color = (0, 0, 0)
     if final_color == (0, 0, 0):
         text_color = (255, 255, 255)
-    for classId, confidence, box in zip(
+    for classId, confidences, box in zip(
         classes.flatten(), confidences.flatten(), boxes
     ):
-        label = "%.2f" % confidence
-        label = "%s" % (names[classId])
-        label = "%s: %.2f" % (names[classId], confidence)
-        if req_class == "anything" and confidence >= precision:
+        label = "%s: %.0f" % (names[classId], confidences * 100) + "%"
+        if req_class == "anything" and confidences >= confidence:
             labelSize, baseLine = cv2.getTextSize(
                 label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1
             ) 
           
             left, top, width, height = box
             top = max(top, labelSize[1])
-            cv2.rectangle(frame, box, color=final_color, thickness=3)
+            cv2.rectangle(frame, box, colors[classId + 5], thickness=3)
             cv2.rectangle(
                 frame,
                 (left - 2, top - labelSize[1] - 5),
-                (left + labelSize[0], top - 1),
-                final_color,
+                (left + labelSize[0] + 4, top - 1),
+                colors[classId + 5],
                 cv2.FILLED,
             )
             cv2.putText(
@@ -53,7 +52,7 @@ def detect_object(frame, req_class, precision, args):
             )
         if names[classId] != req_class:
             continue
-        elif confidence < precision:
+        elif confidences < confidence:
             continue
         else:
             labelSize, baseLine = cv2.getTextSize(
@@ -63,12 +62,12 @@ def detect_object(frame, req_class, precision, args):
             left, top, width, height = box
           
             top = max(top, labelSize[1])
-            cv2.rectangle(frame, box, color=final_color, thickness=2)
+            cv2.rectangle(frame, box, colors[classId + 5], thickness=2)
             cv2.rectangle(
                 frame,
                 (left - 2, top - labelSize[1] - 5),
                 (left + labelSize[0], top - 1),
-                final_color,
+                colors[classId + 5],
                 cv2.FILLED,
             )
             cv2.putText(
