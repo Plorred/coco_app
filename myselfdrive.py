@@ -1,26 +1,31 @@
 import glob
-import os
 import os.path as Path
-import urllib
-from cProfile import run
-from curses import meta
+import argparse
 
-import altair as alt
 import cv2
 import numpy as np
-import pandas as pd
 import streamlit as st
 from PIL import Image
 
 from detection.object_detection import detect_object
 
-with open("yolo/coco.names") as file:
+parser = argparse.ArgumentParser(
+    description="YOLOv4 COCO detection with PyTorch"
+)
+parser.add_argument("--cfg", type=str, default="yolo/yolov4.cfg", help="Config path")
+parser.add_argument("--weights", type=str, default="yolo/yolov4.weights", help="Weights path")
+parser.add_argument("--names", type=str, default="yolo/coco.names", help="Names path")
+parser.add_argument("--car_images", type=str, default="data/test", help="Car images path")
+parser.add_argument("--random_images", type=str, default="data/test2", help="Random images path")
+args = parser.parse_args()
+
+with open(args.names) as file:
     lines = [line.rstrip() for line in file]
 lines.insert(0, "anything")
 
 
 def main():
-    readme_text: str = st.markdown(open("README.md").read())
+    readme_text: str = st.markdown(open("info").read())
     st.sidebar.title("Меню")
     app_mode = st.sidebar.selectbox(
         "Выберите что сделать", ["О программе", "Запуск приложения", "Исходный код"]
@@ -40,10 +45,10 @@ def main():
             "Выберите набор картинок", ["Транспорты и пешеходы", "Случайные картинки"]
         )
         if image_pack == "Транспорты и пешеходы":
-            DATA_ROOT: str = "data/test"
+            DATA_ROOT: str = args.car_images
             run_the_app(DATA_ROOT)
         elif image_pack == "Случайные картинки":
-            DATA_ROOT: str = "data/test2"
+            DATA_ROOT: str = args.random_images
             run_the_app(DATA_ROOT)
 
 
@@ -60,7 +65,7 @@ def run_the_app(data_root: str):
 
 def object_selector(img, precision: int):
     req_class = st.sidebar.selectbox("Выберите объект", lines)
-    image = detect_object(img, req_class, precision)
+    image = detect_object(img, req_class, precision, args)
     return st.image(image)
 
 
