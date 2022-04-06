@@ -4,7 +4,6 @@ import random
 import cv2
 
 colors: list = [c for c in it.product([80, 180, 255, 180, 120], repeat=3)]
-#colors = sorted(colors, key=lambda x: sum(x))
 print(len(colors))
 
 

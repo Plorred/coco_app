@@ -77,7 +77,7 @@ def frame_selector_ui(data_root: str):
 
 
 def confidence_value():
-    confidence: float = st.sidebar.slider("Точность", 0.0, 1.0, 0.3)
+    confidence: float = st.sidebar.slider("Уверенность", 0.0, 1.0, 0.3)
     return confidence
 
 
