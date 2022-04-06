@@ -4,6 +4,8 @@ Object Detection on Microsoft COCO dataset using YOLOv4 Configuration and Weight
 
 Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://https://share.streamlit.io/plorred/coco_app/new/myselfdrive.py)
 
+![plot](readme.png)
+
 # Requirements 🏫
 ```
 - opencv-python==4.5.5.62
@@ -14,7 +16,6 @@ Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge
 - streamlit_webrtc>=0.25.0
 ```
 
-![plot](readme.png)
 # Built with
 <p float="left">
   <img src="/gitimg/Pytorch_logo.png" width="300" height="80" />
@@ -50,11 +51,11 @@ Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge
 ```
 streamlit run myselfdrive.py
 ```
-parameters(default has already been set): 
---cfg Config path
---weights weights_path
---car_images path_to_images(default is data/test)
---random_images path_to_images(default is data/test2)
+parameters(default has already been set):  
+--cfg Config path  
+--weights weights_path  
+--car_images path_to_images(default is data/test)  
+--random_images path_to_images(default is data/test2)  
 ```
 example: streamlit run myselfdrive.py --cfg yolo/yolov4.cfg --weights yolo/tolov4.weights
 ```
