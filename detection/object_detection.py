@@ -4,14 +4,13 @@ import random
 import cv2
 
 colors: list = [c for c in it.product([80, 180, 255, 180, 120], repeat=3)]
-print(len(colors))
 
 
 def detect_object(frame, req_class, confidence, args):
     cfg_path: str = args.cfg
     weights_path: str = args.weights
     names_path: str = args.names
-    
+
     net = cv2.dnn_DetectionModel(cfg_path, weights_path)
     net.setInputSize(704, 704)
     net.setInputScale(1.0 / 255)
@@ -34,8 +33,8 @@ def detect_object(frame, req_class, confidence, args):
         if req_class == "anything" and confidences >= confidence:
             labelSize, baseLine = cv2.getTextSize(
                 label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1
-            ) 
-          
+            )
+
             left, top, width, height = box
             top = max(top, labelSize[1])
             cv2.rectangle(frame, box, colors[classId + 5], thickness=3)
@@ -56,10 +55,10 @@ def detect_object(frame, req_class, confidence, args):
         else:
             labelSize, baseLine = cv2.getTextSize(
                 label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1
-            ) 
- 
+            )
+
             left, top, width, height = box
-          
+
             top = max(top, labelSize[1])
             cv2.rectangle(frame, box, colors[classId + 5], thickness=2)
             cv2.rectangle(

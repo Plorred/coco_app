@@ -1,6 +1,6 @@
+import argparse
 import glob
 import os.path as Path
-import argparse
 
 import cv2
 import numpy as np
@@ -9,14 +9,18 @@ from PIL import Image
 
 from detection.object_detection import detect_object
 
-parser = argparse.ArgumentParser(
-    description="YOLOv4 COCO detection with PyTorch"
-)
+parser = argparse.ArgumentParser(description="YOLOv4 COCO detection with PyTorch")
 parser.add_argument("--cfg", type=str, default="yolo/yolov4.cfg", help="Config path")
-parser.add_argument("--weights", type=str, default="yolo/yolov4.weights", help="Weights path")
+parser.add_argument(
+    "--weights", type=str, default="yolo/yolov4.weights", help="Weights path"
+)
 parser.add_argument("--names", type=str, default="yolo/coco.names", help="Names path")
-parser.add_argument("--car_images", type=str, default="data/test", help="Car images path")
-parser.add_argument("--random_images", type=str, default="data/test2", help="Random images path")
+parser.add_argument(
+    "--car_images", type=str, default="data/test", help="Car images path"
+)
+parser.add_argument(
+    "--random_images", type=str, default="data/test2", help="Random images path"
+)
 args = parser.parse_args()
 
 with open(args.names) as file:
