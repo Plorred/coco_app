@@ -49,11 +49,13 @@ Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge
 # How to Run this Program using streamlit🏃‍♂️
 ```
 streamlit run myselfdrive.py
+```
 parameters(default has already been set): 
 --cfg Config path
 --weights weights_path
 --car_images path_to_images(default is data/test)
---random_images path_to_images(default is data/test2
+--random_images path_to_images(default is data/test2)
+```
 example: streamlit run myselfdrive.py --cfg yolo/yolov4.cfg --weights yolo/tolov4.weights
 ```
 # Reference 🧾
