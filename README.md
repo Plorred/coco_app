@@ -12,14 +12,6 @@ Object Detection on Microsoft COCO dataset using YOLOv4 Configuration and Weight
 - streamlit==1.7.0
 ```
 
-# Built with
-<p float="center">
-  <img src="/gitimg/Pytorch_logo.png"/>
-  <img src="/gitimg/streamlit_logo.png"/> 
-  <img src="/gitimg/cv2_logo.png" height="450" width="900"/>
-  <img src="/gitimg/Pillow_logo.jpg"/>
-</p>
-
 # COCO Dataset 🍫
 
 | S.No | Sports         | Living   | Things      | Vehicles  | Safety        | Food     | Dining       | Electronics |
@@ -70,4 +62,3 @@ parameters:
 # Reference 🧾
 You can read more about [YOLO](https://pjreddie.com/darknet/yolo/)
 and more about [streamlit](https://streamlit.io/)
-
