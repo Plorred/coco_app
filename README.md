@@ -15,8 +15,8 @@ Object Detection on Microsoft COCO dataset using YOLOv4 Configuration and Weight
 # Built with
 <p float="left">
   <img src="/gitimg/Pytorch_logo.png"/>
-  <img src="/gitimg/streamlit_logo.png" width="260" height="160" /> 
-  <img src="/gitimg/cv2_logo.png" width="260" height="130" />
+  <img src="/gitimg/streamlit_logo.png"/> 
+  <img src="/gitimg/cv2_logo.png"/>
 </p>
 
 # COCO Dataset 🍫
