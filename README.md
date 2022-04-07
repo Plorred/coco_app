@@ -2,8 +2,6 @@
 # Object detection with YOLOv4 - WebApp using Streamlit
 Object Detection on Microsoft COCO dataset using YOLOv4 Configuration and Weights
 
-Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/plorred/coco_app/new/myselfdrive.py)
-
 ![plot](readme.png)
 
 # Requirements 🏫
@@ -11,9 +9,7 @@ Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge
 - opencv-python==4.5.5.62
 - pillow>=8.3.1
 - numpy>=1.19.2
-- opencv-python-headless==4.5.5.62
 - streamlit==1.7.0
-- streamlit_webrtc>=0.25.0
 ```
 # COCO Dataset 🍫
 
