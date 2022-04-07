@@ -6,7 +6,7 @@ Object Detection on Microsoft COCO dataset using YOLOv4 Configuration and Weight
 
 # Requirements 🏫
 ```
-- opencv-python==4.5.5.62
+- opencv-python<=4.5.5.62
 - pillow>=8.3.1
 - numpy>=1.19.2
 - streamlit==1.7.0
