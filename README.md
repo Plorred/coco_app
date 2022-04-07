@@ -15,14 +15,6 @@ Demo :  [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge
 - streamlit==1.7.0
 - streamlit_webrtc>=0.25.0
 ```
-
-# Built with
-<p float="left">
-  <img src="/gitimg/Pytorch_logo.png" width="300" height="80" />
-  <img src="/gitimg/streamlit_logo.png" width="260" height="160" /> 
-  <img src="/gitimg/cv2_logo.png" width="260" height="130" />
-</p>
-
 # COCO Dataset 🍫
 
 | S.No | Sports         | Living   | Things      | Vehicles  | Safety        | Food     | Dining       | Electronics |
